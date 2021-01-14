@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+
+<script src="js/jquery.min_1.js"></script>
+
+    <script>
+    function set_validator_errors(){
+        orderValidator.errorTitle = 'Παρακαλώ διορθώστε τα ακόλουθα λάθη'; 
+
+        orderValidator.errorNameField = 'Όνομα'; 
+        orderValidator.errorNameMess = 'Εισάγετε το όνομά σας'; 
+        
+        orderValidator.errorPhoneField = 'Αριθμός επικοινωνίας'; 
+        orderValidator.errorPhoneMess = 'Εισαγάγετε τον σωστό αριθμό τηλεφώνου'; 
+        
+        orderValidator.errorAddress = 'Εισαγάγετε τη σωστή διεύθυνση'; 
+        orderValidator.errorRequired = 'υποχρεωτικό πεδίο'; 
+        orderValidator.errorMaxLength = 'έγκυρος μέγιστος χαρακτήρας {1}'; 
+        orderValidator.errorMinLength = 'έγκυρος ελάχιστος χαρακτήρας {1}'; 
+        orderValidator.errorEmailField = 'E-mail';
+        orderValidator.errorEmail = 'Καθορίστηκε μη έγκυρο email';
+        }
+    </script>
+    
+<script>
+
+
+
+    
+    setOffer: function (offerId) {
+        if (offerId == this._setOfferId) {
+            return ;
+        }
+        this._setOfferId = offerId;
+        if (offerId) {
+            var offer = app.offers[offerId];
+            var previousOffer = app.currentOffer;
+            app.currentOffer = offer;
+            var event = this.jq.Event("offerchange");
+            event.previousOffer = previousOffer;
+            event.currentOffer = app.currentOffer;
+            this.jq(document).trigger(event);
+            this.updatePage(offer);
+        } else {
+            $('input[name=country]').val('');
+        }
+    },
+    
+    updatePage: function(offer) {
+        $('x-newprice').html(offer.price);
+        $('x-oldprice').html(offer.price2);
+        $('x-currency').html(offer.currency.name);
+        $('input[name=offer], select[name=offer]').val(offer.id);
+        $('input[name=country]').val(offer.country.code);
+    },
+
+    blockForm: function() {
+        // Блокируем кнопки при отправке формы
+        $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        app.incompleteOrder.lock = true;
+        clearTimeout(app.incompleteOrder.timer);
+    },
+
+    unblockForm: function() {
+        $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        app.incompleteOrder.lock = false;
+        clearTimeout(app.incompleteOrder.timer);
+    }
+
+};
+
+
+</script><script src="js/form.validate.js"></script>
+<script src="js/form.incomplete.js"></script>
+<script src="js/main2.js"></script>
+
+
+
+  <script src="js/jquery.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <title>Steam brush</title>
+  <link href="css/Roboto.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/fonts.css" rel="stylesheet">
+  <link href="css/adapt.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/dop.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/lang.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Steam brush">
+  <meta property="og:content" content="ΕΧΕΤΕ ΚΟΥΡΑΣΤΕΙ ΑΠΟ ΤΟΥΣ ΚΑΝΟΝΙΚΟΥΣ ΑΤΜΟΚΑΘΑΡΙΣΤΕΣ">
+  <meta property="og:image" content="images/reason-img.png">
+  
+</head>
+
+<body class="body">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog cons-dialog" role="document">
+      <div class="modal-content cons-modal">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title main-act" id="myModalLabel">ΒΙΑΣΤΕΙΤΕ ΝΑ ΑΠΟΚΤΗΣΕΤΕ ΤΟ <br><span>ΜΕ ΠΡΟΣΦΟΡΑ
+              -53%</span></h4>
+        </div>
+        <div class="modal-body">
+          <form method="POST" class="main-order-form al-form" name="form-1" action="https://healthbestblog.space/cpatl/api.php">
+              
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="GR" selected="selected" value="20597">
+            Греция        </option>
+    </select>
+
+     
+            <div class="input-wrapper">
+              <input id="name1" name="name" type="text" class="main-name" placeholder="Πληκτρολογήστε το όνομά σας" required>
+              <label for="name1"></label>
+            </div>
+            <div class="input-wrapper">
+              <input id="phone1" name="phone" type="tel" class="main-tell" placeholder="Πληκτρολογήστε το επώνυμό σας" required>
+              <label for="phone1"></label>
+            </div>
+            <button type="submit" class="feedback main-button">ΠΑΡΑΓΓΕΙΛΕΤΕ με εκπτωση -53%</button>
+      <input type="hidden" name="stream_hid" value="oKdUm4vR">
+      <input type="hidden" name="offer_id" value="2486">
+
+      
+      <input type="hidden" name="country" value="GR"> 
+
+      <input type="hidden" name="sid1" value="ads">
+      <input type="hidden" name="sid2" value="andr">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-sm-6 col-xs-8">
+          <div class="top-logo">STEAM BRUSH</div>
+        </div>
+        <div class="col-md-3 col-md-push-7 col-sm-6">
+          <div class="top-button" data-toggle="modal" data-target="#myModal">ΠΑΡΑΓΓΕΙΛΕΤΕ ΤΟ STEAM BRUSH</div>
+        </div>
+        <div class="col-md-7 col-md-pull-3 col-sm-12 col-xs-4">
+          <ul class="top-menu">
+            <li><a href="#ex1">8 ΛΟΓΟΙ ΓΙΑ ΝΑ ΤΟ ΑΓΟΡΑΣΕΤΕ</a></li>
+            <li><a href="#ex2">ΓΙΑΤΙ ΕΙΔΙΚΑ ΤΟ <span>STEAM BRUSH</span></a></li>
+            <li><a href="#ex3">ΠΛΗΡΗΣ ΡΥΘΜΙΣΗ</a></li>
+            <li><a href="#ex4">ΣΧΟΛΙΑ</a></li>
+          </ul>
+          <nav id="mobile-menu"><a href="#" onclick="document.location.hash=''; return false;" id="menu-icon">
+              <div class="icon-list icon2x"></div>
+            </a>
+            <div class="menu-mobile-menu-container">
+              <ul id="menu-mobile-menu" class="menu">
+                <li><a href="#ex1">8 ΛΟΓΟΙ ΓΙΑ ΝΑ ΤΟ ΑΓΟΡΑΣΕΤΕ</a></li>
+                <li><a href="#ex2">ΓΙΑΤΙ ΕΙΔΙΚΑ ΤΟ <span>STEAM BRUSH</span></a></li>
+                <li><a href="#ex3">ΠΛΗΡΗΣ ΡΥΘΜΙΣΗ</a></li>
+                <li><a href="#ex4">ΣΧΟΛΙΑ</a></li>
+                <li data-toggle="modal" data-target="#myModal">ΠΑΡΑΓΓΕΙΛΕΤΕ ΤΟ STEAM BRUSH</li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="container">
+      <div class="main-top">ΕΧΕΤΕ ΚΟΥΡΑΣΤΕΙ ΑΠΟ ΤΟΥΣ ΚΑΝΟΝΙΚΟΥΣ ΑΤΜΟΚΑΘΑΡΙΣΤΕΣ; <br>
+        <p>ΤΟΤΕ ΠΡΟΛΑΒΕΤΕ ΝΑ ΑΠΟΚΤΗΣΕΤΕ ΤΟ STEAM BRUSH</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 main-form">
+          <div class="main-act">ΒΙΑΣΤΕΙΤΕ ΝΑ ΑΠΟΚΤΗΣΕΤΕ ΤΟ <br><span>ΜΕ ΠΡΟΣΦΟΡΑ -53%</span></div>
+          <form method="POST" class="main-order-form al-form" action="https://healthbestblog.space/cpatl/api.php" name="form-1">
+              
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="GR" selected="selected" value="20597">
+            Греция        </option>
+    </select>
+
+     
+            <div class="input-wrapper">
+              <input id="name2" name="name" type="text" class="main-name" placeholder="Πληκτρολογήστε το όνομά σας" required>
+              <label for="name2"></label>
+            </div>
+            <div class="input-wrapper">
+              <input id="phone2" name="phone" type="tel" class="main-tell" placeholder="Πληκτρολογήστε το επώνυμό σας" required>
+              <label for="phone2"></label>
+            </div>
+            <button type="submit" class="feedback main-button">ΠΑΡΑΓΓΕΙΛΕΤΕ με εκπτωση -53%</button>
+            <input type="hidden" name="stream_hid" value="oKdUm4vR">
+      <input type="hidden" name="offer_id" value="2486">
+
+      
+      <input type="hidden" name="country" value="GR"> 
+
+      <input type="hidden" name="sid1" value="ads">
+      <input type="hidden" name="sid2" value="andr">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+          </form>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="timer">
+            <div class="main-timer">Μέχρι το τέλος της προσφοράς έμεινε:</div>
+            <div class="countbox clearfix"></div>
+            <div class="main-time"><span>Ώρες</span><span>Λεπτά</span><span>Δευτερόλεπτα</span></div>
+          </div>
+          <div class="main-price">
+            <div class="main-price-text">ΠΡΟΣΦΟΡΑ</div>
+            <div class="main-price-old al-cost-promo"><x-oldprice>90</x-oldprice> <x-currency>€</x-currency></div>
+            <div class="main-price-new al-cost"><x-newprice>39</x-newprice> <x-currency>€</x-currency></div>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12">
+          <img class="main-img" src="images/body-brush.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="use">
+    <div class="container">
+      <div class="use-top">ΓΙΑΤΙ ΕΙΝΑΙ ΧΡΗΣΙΜΟ ΤΟ STEAM BRUSH;</div>
+      <div class="row">
+        <div class="col-md-3 col-xs-6">
+          <img class="use-img" src="images/use1.jpg">
+          <div class="use-text">ΚΑΘΑΡΙZEI ΤΗΝ ΒΡΩΜΙΑ ΑΠΟ ΤΑ ΧΑΛΙΑ</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <img class="use-img use-img2" src="images/use2.jpg">
+          <div class="use-text">ΑΦΑΙΡΕΙ ΤΟΥΣ ΞΗΡΟΥΣ ΛΕΚΕΔΕΣ ΑΠΟ ΤΑ ΡΟΥΧΑ</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <img class="use-img" src="images/use3.jpg">
+          <div class="use-text">ΑΦΑΙΡΕΙ ΤΗΝ ΒΡΩΜΙΑ ΑΠΟ ΤΗΝ ΕΠΙΦΑΝΕΙΑ ΤΟΥ ΑΥΤΟΚΙΝΗΤΟΥ</div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <img class="use-img use-img2" src="images/use4.jpg">
+          <div class="use-text">ΣΙΔΕΡΏΝΕΙ TA ΕΥΑΙΣΘΗΤΑ ΥΦΑΣΜΑΤΑ ΧΩΡΙΣ ΝΑ ΤΑ ΚΑΤΑΣΤΡΕΦΕΙ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reason">
+    <div class="container">
+      <div id="ex1" class="reason-top">8 ΛΟΓΟΙ ΓΙΑ ΝΑ ΑΠΟΚΤΗΣΕΤΕ ΤΟ STEAM BRUSH </div>
+      <div class="row">
+        <div class="col-md-4">
+          <img class="reason-img" src="images/reason-img.png">
+        </div>
+        <div class="col-md-8">
+          <div class="reason-list">
+            <p><span>1.</span> ΣΙΔΕΡΩΣΤΕ ΥΦΑΣΜΑΤΑ ΧΩΡΙΣ ΑΝΤΙΣΤΑΣΗ των ΙΝΩΝ στο σιδέρωμα. ΔΗΜΙΟΥΡΓΕΙ ΟΓΚΟ, ΕΛΑΣΤΙΚΟΤΗΤΑ
+              ΚΑΙ ΜΕΙΩΝΕΙ ΤΗΝ ΑΡΧΙΚΗ ΓΙΑΛΑΔΑ.</p>
+            <p><span>2.</span> Βούρτσα Ατμού - ιδανική για ΕΠΕΞΕΡΓΑΣΙΑ ΜΑΛΛΙΝΩΝ ΠΡΟΪΟΝΤΩΝ. ΥΠΟ ΤΗΝ ΕΠΊΠΤΩΣΗ ΤΟΥ ΑΤΜΟΥ
+              ΣΤΗΝ ΓΟΥΝΑ, ΔΕΝ ΑΦΗΝΕΙ ΣΗΜΑΔΙΑ, Η ΓΟΥΝΑ ΔΙΑΤΗΡΕΙ ΤΗΝ ΕΛΑΦΡΟΤΗΤΑ ΚΑΙ ΤΗ ΦΥΣΙΚΗ ΤΗΣ ΜΟΡΦΗ</p>
+            <p><span>3.</span> ΔΙΝΕΙ φρέσκια ματιά στα ευαίσθητα υφάσματα: βαμβάκι, λινό, πλεκτά, δαντέλες. ΧΕΙΡΙZETAI
+              ΜΕ ΠΡΟΣΟΧΗ TA ΔΙΑΚΟΣΜΗΤΙΚΑ ΠΡΟΪΟΝΤΑ ( ΔΙΣΚΙΑ, ΔΟΜΕΣ, ΚΕΝΤΗΜΑ, ΚΟΥΜΠΙΑ).</p>
+            <p><span>4.</span> ΚΑΝΕΙ ΑΠΟΛΥΜΑΝΣΗ, ΧΩΡΙΣ ΧΡΗΣΗ ΚΑΘΑΡΙΣΤΙΚΩΝ ΠΡΟΙΟΝΤΩΝ. ΙΔΑΝΙΚΗ ΜΕΘΟΔΟΣ ΚΑΘΑΡΙΣΜΟΥ. ΓΙΑ
+              ΛΟΥΤΡΙΝΑ ΠΑΙΧΝΙΔΙΑ ΚΑΙ ΣΕΝΤΟΝΙΑ ΕΙΝΑΙ Η ΚΑΛΥΤΕΡΗ ΜΕΘΟΔΟΣ ΚΑΘΑΡΙΣΜΟΥ ΕΑΝ ΥΠΑΡΧΟΥΝ ΜΙΚΡΑ ΠΑΙΔΙΑ ΣΤΟ ΣΠΙΤΙ.
+            </p>
+            <p><span>5.</span> ΧΑΡΗ ΤΗΣ ΥΨΗΛΗΣ ΘΕΡΜΟΚΡΑΣΙΑΣ ΤΟΥ ΑΤΜΟΥ, ΤΟ STEAM BRUSH ΒΟΗΘΑΕΙ ΝΑ ΑΠΑΛΛΑΓΟΥΝ ΤΑ ακάρεα
+              και βακτήρια.</p>
+            <p><span>6.</span> Η ΒΟΥΡΤΣΑ ΑΤΜΟΥ ΘΑ ΣΑΣ ΒΟΗΘΗΣΕΙ ΝΑ ΔΡΟΣΙΣΕΤΕ ΚΑΙ ΝΑ ΚΑΘΑΡΙΣΕΤΕ ΤΑ ΚΑΘΙΣΜΑΤΑ ΤΩΝ
+              ΑΥΤΟΚΙΝΗΤΩΝ ΣΑΣ</p>
+            <p><span>7.</span> Η ΧΕΙΡΟΚΙΝΗΤΙΚΗ ΣΥΣΚΕΥΗ ΕΧΕΙ ΠΕΡΙΕΧΟΜΕΝΗ ΛΕΙΤΟΥΡΓΙΑ ΑΤΜΟΥ , ΠΟΥ ΣΑΣ ΕΠΙΤΡΕΠΕΙ ΝΑ
+              ΦΡΟΝΤΊΖΕΤΕ ΤΑ ΡΟΥΧΑ ΣΑΣ ΧΩΡΙΣ ΝΑ ΤΑ ΑΦΑΙΡΕΙΤΕ ΑΠΟ ΤΗΝ ΚΡΕΜΑΣΤΡΑ.</p>
+            <p><span>8.</span> ΧΡΗΣΙΜΟΠΟΙΩΝΤΑΣ ΤΟ ΜΙΝΙ ΚΑΘΑΡΙΣΤΙΚΟ, ΜΠΟΡΕΙΤΕ ΝΑ ΚΑΘΑΡΙΣΕΤΕ ΤΙΣ ΠΤΥΧΕΣ ΤΩΝ ΚΟΥΡΤΙΝΩΝ
+              χωρίς να τις αφαιρέσετε.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="bord1" src="images/bord1.png">
+  </div>
+  <div class="why" id="ex2">
+    <div class="container">
+      <div class="why-top">ΓΙΑΤΙ ΕΙΔΙΚΑ ΤΟ STEAM BRUSH ?</div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="why-name">ΚΑΝΟΝΙΚΟΙ ΑΤΜΟΚΑΘΑΡΙΣΤΕΣ</div>
+          <img class="why-img" src="images/why1.jpg">
+          <div class="why-list">
+            <p>Αφήνουν υγρούς λεκέδες στα ρούχα</p>
+            <p>ΔΕΝ ANTIMETΟΠΙΖΕΙ ΤΙΣ ΠΤΥΧΕΣ ΤΟΥ ΥΦΑΣΜΑΤΟΣ ΚΑΙ ΑΦΗΝΕΙ ΠΤΥΧΕΣ ΣΤΑ ΠΡΟΙΟΝΤΑ.</p>
+            <p>ΕΙΝΑΙ ΜΕΓΑΛΑ ΣΕ ΜΕΓΕΘΟΣ ΚΑΙ ΠΑΡΕΧΟΥΝ ΑΧΡΗΣΤΑ ΕΞΑΡΤΗΜΑΤΑ</p>
+            <p>ΔΕΝ ΕΧΟΥΝ ΑΡΚΕΤΗ ΙΣΧΥ ΓΙΑ ΝΑ ΚΑΘΑΡΙΣΟΥΝ ΤΟΥΣ ΞΗΡΟΥΣ ΛΕΚΕΔΕΣ</p>
+            <p>Εχει καταστρεπτική επίδραση στην υφή του υφάσματος</p>
+            <p>Χρειάζεται επιπλέον φροντίδα</p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="why-name">ΑΤΜΟΚΑΘΑΡΙΣΤΗΣ STEAM BRUSH</div>
+          <img class="why-img" src="images/why2.jpg">
+          <div class="why-list2">
+            <p>ΣΥΜΠΑΓΕΣ</p>
+            <p>ΕΥΚΟΛΟ ΣΤΗΝ ΧΡΗΣΗ</p>
+            <p>ΚΑΘΑΡΙΣΜΟΣ ΥΨΗΛΗΣ ΠΟΙΟΤΗΤΑΣ ΟΛΩΝ ΤΩΝ ΤΥΠΩΝ ΥΦΑΝΤΩΝ</p>
+            <p>ΑΦΑΙΡΕΣΗ ΤΩΝ ΞΗΡΩΝ ΛΕΚΕΔΩΝ ΣΕ ΔΥΣΚΟΛΕΣ ΕΠΙΦΑΝΕΙΕΣ</p>
+            <p>ΤΑ ΕΥΑΙΣΘΗΤΑ ΥΦΑΣΜΑΤΑ ΔΕΝ ΠΑΡΑΜΟΡΦΩΝΟΝΤΑΙ ΚΑΤΑ ΤΗΝ ΧΡΗΣΗ</p>
+            <p>Καταναλώνει μικρή ποσότητα ΗΛΕΚΤΡΙΚΗΣ ΕΝΕΡΓΕΙΑΣ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="complect" id="ex3">
+    <div class="container">
+      <div class="complect-top">ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ ΚΑΙ ΕΞΟΠΛΙΣΜΟΣ</div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="complect-list">
+            ΤΕΧΝΙΚΑ ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ ΤΟΥ STEAM BRUSH
+            <p>• ΑΚΡΟΦΥΣΙΑ: ME ΕΠΙΠΕΔΗ ΕΠΙΦΑΝΕΙΑ ΚΑΙ ΒΟΥΡΤΣΑ</p>
+            <p>• ΔΟΧΕΙΟ ΝΕΡΟΥ: 100 ML. (15 λεπτά ΣΥΝΕΧΗΣ ΑΤΜΟΥ)</p>
+            <p>• ΧΩΡΗΤΙΚΟΤΗΤΑ TΟΥ ΔΟΧΕΙΟΥ ΜΕΤΡΗΣΗΣ: 50 ML</p>
+            <p>• ΔΕΙΚΤΗΣ ΠΑΡΑΣΚΕΥΗΣ</p>
+            <p>• 5 πρίζες ατμού</p>
+            <p>• ΤΡΟΦΟΔΟΣΙΑ: 110-220 V</p>
+            <p>• ΙΣΧΥΣ: 800 W</p>
+            <p>• ΣΥΧΝΟΤΗΤΑ: 50-60 Hz</p>
+            <p>• ΥΛΙΚΟ: ΠΛΑΣΤΙΚΟ</p>
+            <p>• ΧΡΩΜA: ΛΕΥΚΟ</p>
+            <p>• Χρώμα του Διαφανες δοχείου νερού: ΜΠΛΕ</p>
+            <p>• Μήκος καλωδίου 1,65 Μ</p>
+            <p>• ΜΕΓΕΘΟΣ: 32,5Χ10Χ9</p>
+            <p>• ΜΗΚΟΣ ΤΗΣ ΛΑΒΗΣ: 12,5 CM</p>
+            <p>• Βάρος (με ένα ακροφύσιο): 900 g</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img class="complect-img" src="images/complect-img.png">
+          <div class="complect-list2">
+            ΕΞΟΠΛΙΣΜΟΣ ΤΟΥ STEAM BRUSH
+            <p>• ΒΟΎΡΤΣΑ ΑΤΜΟΥ <br>2 ΑΚΡΟΦΥΣΙΑ:</p>
+            <p>• Αφαιρούμενη σκληρή βούρτσα με εργαλείο για σιδέρωμα</p>
+            <p>• ΑΦΑΙΡουμενη βούρτσα ΓΙΑ ΚΑΝΟΝΙΚΟ ΣΙΔΕΡΩΜΑ ΚΑΙ ΣΙΔΕΡΩΜΑ ΜΕ ΑΤΜΟ, ΔΟΧΕΙΟ ΓΙΑ ΜΕΤΡΗΣΗ ΝΕΡΟΥ.</p>
+          </div>
+          <div class="complect-instr" data-toggle="modal" data-target=".bs-example-modal-lg">ΟΔΗΓΙΕΣ ΧΡΗΣΗΣ</div>
+          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="gridSystemModalLabel">ΟΔΗΓΙΕΣ ΧΡΗΣΗΣ</h4>
+                </div>
+                <div class="why-modal">
+                  Εγκαταστήστε ένα από τα δύο ακροφύσια για την βούρτσα ατμού μέχρι να ζεσταθεί και να ακουστεί το κλικ.
+                  <br>Χρησιμοποιώντας το δοχείο μέτρησης, μην ρίχνετε περισσότερο από 100 ml νερού στο δοχείο και
+                  κλείστε το καπάκι. (Ο όγκος αυτός είναι αρκετός για 15 λεπτά συνεχής πλύσης.) H πάνω επιφάνεια της
+                  βούρτσας είναι κατασκευασμένη από διαφανές πλαστικό, ώστε να μπορείτε να παρακολουθείτε τη ροή του
+                  νερού.
+                  <br>Συνδέστε τη βούρτσα ατμού στην πηγή τροφοδοσίας.
+                  <br>Μόλις η ένδειξη θέρμανσης σβήσει και αρχίσει η παραγωγή ατμού, η συσκευή μπορεί να χρησιμοποιηθεί.
+                  Για να ρυθμίσετε την ισχύ και την περιοχή του ατμού εξάτμισης, πατήστε το κουμπί ατμού που βρίσκεται
+                  στη λαβή της συσκευής.
+                  <br>Μετά το κανονικό σιδέρωμα και με τον ατμό, αφαιρέστε τη βούρτσα ατμού από το δίκτυο και χύστε το
+                  υπόλοιπο νερό από το δοχείο νερού και αφαιρέστε το ακροφύσιο.
+                  <br>
+                  <br>Συμβουλές χρήσης:
+                  <br>
+                  <br>Μην χρησιμοποιείτε βούρτσα ατμού εάν δεν υπάρχει νερό στο δοχείο.
+                  <br>Μην ρίχνετε απορρυπαντικά, αεροζόλ ή χημικές ουσίες στο δοχείο νερού.
+                  <br>Κατά τη λειτουργία της συσκευής, η ενδεικτική λυχνία θέρμανσης ανάβει και σβήνει. Αυτό είναι
+                  φυσιολογικό, αφού η συσκευή ρυθμίζει αυτόματα τη θερμοκρασία παροχής ατμού.
+                  <br>Να θυμάστε! Πατήστε το κουμπί ατμού μόνο όταν η ενδεικτική λυχνία θέρμανσης σβήσει και ανάψει μετά
+                  την επαναενεργοποίηση. Επιπλέον, κατά τη διάρκεια της παροχής ατμού, πατήστε το κουμπί παροχής ατμού
+                  κάθε 2-4 δευτερόλεπτα χωρίς να κρατάτε το δάχτυλό σας πάνω στο κουμπί για περισσότερο από 5
+                  δευτερόλεπτα.
+                  <br>Αποσυνδέστε τη βούρτσα αν δεν τη χρησιμοποιήσετε περισσότερο από 20 λεπτά πριν από τον καθαρισμό ή
+                  όταν βάζετε και χύνετε το νερό.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="bord2" src="images/bord2.png">
+  </div>
+  <div class="order">
+    <div class="container">
+      <div class="order-top">ΒΙΑΣΤΕΙΤΕ ΝΑ ΑΠΟΚΤΗΣΕΤΕ ΤΟ STEAM BRUSH ΜΕ ΠΡΟΣΦΟΡΑ -53%</div>
+      <div class="row">
+        <form method="POST" action="https://healthbestblog.space/cpatl/api.php" name="form-1" class="main-order-form al-form">
+              <input name="csrf_token" type="hidden" value="c009e38f496a7f11570c0760d7024bbd:1610613398">
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="GR" selected="selected" value="20597">
+            Греция        </option>
+    </select>
+
+     
+          <div class="input-wrapper input-wrapper_inline">
+            <input id="name3" name="name" type="text" class="main-name" placeholder="Πληκτρολογήστε το όνομά σας" required>
+            <label for="name3"></label>
+          </div>
+          <div class="input-wrapper input-wrapper_inline">
+            <input id="phone3" name="phone" type="tel" class="main-tell" placeholder="Πληκτρολογήστε το επώνυμό σας" required>
+            <label for="phone3"></label>
+          </div>
+          <button type="submit" class="feedback main-button">ΠΑΡΑΓΓΕΙΛΕΤΕ ΜΕ ΠΡΟΣΦΟΡΑ - 53%</button>
+           <input type="hidden" name="stream_hid" value="oKdUm4vR">
+      <input type="hidden" name="offer_id" value="2486">
+
+      
+      <input type="hidden" name="country" value="GR"> 
+
+      <input type="hidden" name="sid1" value="ads">
+      <input type="hidden" name="sid2" value="andr">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="rev" id="ex4">
+    <div class="container">
+      <div class="rev-top">ΣΧΟΛΙΑ</div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row rev-block">
+            <div class="col-sm-4">
+              <img class="rev-img" src="images/rev1.jpg">
+            </div>
+            <div class="col-sm-8">
+              <div class="rev-name">Μιχάλης, 34 ετών, Καβάλα</div>
+              <div class="rev-text">Σκεφτόμουν πολύ καιρό για το τι να αγοράσω: ένα μίνι-πλυντήριο ή ένα καθαριστικό
+                ατμού για το αυτοκίνητο. Αλλά στο τέλος, αποφάσισα και προτίμησα το Steam Brush. Σε αντίθεση με το μίνι
+                πλύσιμο, είναι συμπαγής και δεν έχει πολλά άχρηστα εξαρτήματα που καταλαμβάνουν χώρο στο αυτοκίνητο.
+                Έχει τη λειτουργία του κάθετου καθαρισμού με ατμό, μια βολική λαβή και αντιμετωπίζει τους ξηρούς λεκέδες
+                στα καθίσματα αυτοκινήτων.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row rev-block">
+            <div class="col-sm-4">
+              <img class="rev-img" src="images/rev2.jpg">
+            </div>
+            <div class="col-sm-8">
+              <div class="rev-name">Αλέξανδρος, 28 ετών, Αθήνα</div>
+              <div class="rev-text">Την βούρτσα ατμού την έκανα δώρο στη γυναίκα μου, η οποία δεν την αποχωρίζεται ποτέ
+                , της άρεσε πραγματικά το δώρο μου. Προσπάθησα να καθαρίσω τα χαλιά και τις κουρτίνες - αποδείχθηκε
+                εξαιρετικό το αποτέλεσμα. Κατάφερε μάλιστα να εξαφανίσει το παλιό λιπαρό λεκέ στο πουκάμισο μου που
+                έμεινε μετά την Πρωτοχρονιά. Καλή τιμή και ποιότητα. Είμαστε πολύ ευχαριστημένοι με την αγορά.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row rev-block">
+            <div class="col-sm-4">
+              <img class="rev-img" src="images/rev3.jpg">
+            </div>
+            <div class="col-sm-8">
+              <div class="rev-name">Βίκυ, 32 ετών, Πάτρα</div>
+              <div class="rev-text">Αγόρασα το Steam Brush ειδικά για τον καθαρισμό του δωματίου των παιδιών μου και την
+                απολύμανση των λούτρινων παιχνιδιών του γιου μου. Αλλά μετά την ανάγνωση των οδηγιών, ήμουν έκπληκτος
+                από τις υπάρχουσες δυνατότητες της συσκευής. Τώρα ο σύζυγός μου το χρησιμοποιεί μερικές φορές στο
+                αυτοκίνητο. Πρότεινα το Steam Brush στην γειτόνισσά μου, τώρα περιμένω να έρθει και να καυχηθεί μια
+                υπέροχη αγορά.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row rev-block">
+            <div class="col-sm-4">
+              <img class="rev-img" src="images/rev4.jpg">
+            </div>
+            <div class="col-sm-8">
+              <div class="rev-name">Αλίκη, 46 ετών, Θεσσαλονίκη</div>
+              <div class="rev-text">Χρησιμοποιώ τη βούρτσα ατμού για χρόνια, και ποτέ δεν με εγκαταλείπει. Προηγουμένως,
+                χρησιμοποιούσα ένα σίδερο για σιδέρωμα ρούχων, αλλά με την πάροδο του χρόνου σταμάτησε τη θέρμανση του.
+                Τώρα χρησιμοποιώ την βούρτσα ατμού ως σίδηρο, αλλά η κόρη μου είπε ότι αυτό το θαύμα αφαιρεί και τους
+                λεκέδες από τα ρούχα.Καταπληκτικό! Πού έχει φτάσει η τεχνολογία! Παλιά, για να αφαιρέσουμε το λεκέ, ήταν
+                απαραίτητο να τα βάλουμε σε ζεστό νερό, και τώρα μετά από 5 λεπτά μπορώ εύκολα να απαλλαγώ από αυτό το
+                πρόβλημα.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="how" id="ex5">
+    <div class="container">
+      <div class="how-top">ΠΩΣ ΔΟΥΛΕΥΟΥΜΕ;</div>
+      <div class="row">
+        <div class="col-sm-3 col-xs-6">
+          <div class="how1"></div>
+          <div class="how-text">ΑΜΕΣΗ ΕΚΤΕΛΕΣΗ ΤΗΣ ΠΑΡΑΓΓΕΛΙΑΣ ΣΑΣ</div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <div class="how2"></div>
+          <div class="how-text">ΠΛΗΡΩΣ ΠΙΣΤΟΠΟΙΗΜΕΝΑ ΠΡΟΙΟΝΤΑ</div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <div class="how3"></div>
+          <div class="how-text">ΠΑΡΑΔΟΣΗ ΑΠΟ 1 ΕΩΣ 3 ΕΡΓΑΣΙΜΕΣ ΗΜΕΡΕΣ</div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <div class="how4"></div>
+          <div class="how-text">ΠΛΗΡΩΜΗ ΚΑΤΑ ΤΗΝ ΠΑΡΑΔΟΣΗ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main2">
+    <div class="container">
+      <div class="main-top">ΕΧΕΤΕ ΚΟΥΡΑΣΤΕΙ ΑΠΟ ΤΟΥΣ ΚΑΝΟΝΙΚΟΥΣ ΑΤΜΟΚΑΘΑΡΙΣΤΕΣ; <br>
+        ΠΡΟΛΑΒΕΤΕ ΝΑ ΑΠΟΚΤΗΣΕΤΕ ΤΟΝ ΑΤΜΟΚΑΘΑΡΙΣΤΉ STEAM BRUSH
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 main-form">
+          <div class="main-act">ΒΙΑΣΤΕΙΤΕ ΝΑ ΑΠΟΚΤΗΣΕΤΕ ΤΟ <br><span>ΜΕ ΠΡΟΣΦΟΡΑ -53%</span></div>
+          <form method="POST" action="https://healthbestblog.space/cpatl/api.php" name="form-1" class="main-order-form al-form">
+                
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="GR" selected="selected" value="20597">
+            Греция        </option>
+    </select>
+
+     
+            <div class="input-wrapper">
+              <input id="name4" name="name" type="text" class="main-name" placeholder="Πληκτρολογήστε το όνομά σας" required>
+              <label for="name4"></label>
+            </div>
+            <div class="input-wrapper">
+              <input id="phone4" name="phone" type="tel" class="main-tell" placeholder="Πληκτρολογήστε το επώνυμό σας" required>
+              <label for="phone4"></label>
+            </div>
+            <button type="submit" class="feedback main-button">ΠΑΡΑΓΓΕΙΛΕΤΕ ΜΕ ΠΡΟΣΦΟΡΑ - 53%</button>
+            <input type="hidden" name="stream_hid" value="oKdUm4vR">
+      <input type="hidden" name="offer_id" value="2486">
+
+      
+      <input type="hidden" name="country" value="GR"> 
+
+      <input type="hidden" name="sid1" value="ads">
+      <input type="hidden" name="sid2" value="andr">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+          </form>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="timer">
+            <div class="main-timer">Μέχρι το τέλος της προσφοράς έμεινε:</div>
+            <div class="countbox clearfix"></div>
+            <div class="main-time"><span>Ώρες</span><span>Λεπτά</span><span>Δευτερόλεπτα</span></div>
+          </div>
+          <div class="main-price">
+            <div class="main-price-text">ΠΡΟΣΦΟΡΑ</div>
+            <div class="main-price-old al-cost-promo"><x-oldprice>90</x-oldprice> <x-currency>€</x-currency></div>
+            <div class="main-price-new al-cost"><x-newprice>39</x-newprice> <x-currency>€</x-currency></div>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12">
+          <img class="main-img" src="images/body2-brush.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div style="text-align: center; padding: 20px; font-size: 18px;">
+  <p>OOO "OSTROV PRODAZH" OGRN: 1197746695530 VAT: 7708365555</p>
+<p>129090, Moscow, pereulok Zhivarev, house 8, stroenie 3, flat 16 email: ostrov.prodazh@mail.com Skype: ostrov.prodazh@mail.com</p> 
+
+
+    
+            <p class="conf-link doclinks">
+        <a class="nav-link" href="" onclick="window.open('/policy_en.php'); return false;">Privacy Policy</a>
+          |
+        <a class="nav-link" href="" onclick="window.open('/terms_en.php'); return false;">Terms & Conditions</a>
+      </p>
+      
+    
+</div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="js/count.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
