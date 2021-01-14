@@ -1,0 +1,43 @@
+@font-face {
+    font-family: OpenSans;
+    src: url("../fonts/OpenSansRegular.eot");
+    src: url("../OpenSansRegular.eot-#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSansRegular.woff") format("woff"),
+    url("../fonts/OpenSansRegular.woff2") format("woff2"),
+    url("../fonts/OpenSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url("../fonts/OpenSansBold.eot");
+    src: url("../OpenSansBold.eot-#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSansBold.woff") format("woff"),
+    url("../fonts/OpenSansBold.woff2") format("woff2"),
+    url("../fonts/OpenSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: BebasNeueRegular;
+    src: url("../fonts/BebasRegular.eot");
+    src: url("../BebasRegular.eot-#iefix") format("embedded-opentype"),
+    url("../fonts/BebasRegular.woff") format("woff"),
+    url("../fonts/BebasRegular.woff2") format("woff2"),
+    url("../fonts/BebasRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: BebasNeueBold;
+    src: url("../fonts/BebasBold.eot");
+    src: url("../BebasBold.eot-#iefix") format("embedded-opentype"),
+    url("../fonts/BebasBold.woff") format("woff"),
+    url("../fonts/BebasBold.woff2") format("woff2"),
+    url("../fonts/BebasBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

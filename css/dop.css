@@ -1,0 +1,109 @@
+.dop {
+    text-align: center;
+    margin: 10px auto 30px;
+}
+
+.dop #buyto {
+    font-size: 2em;
+    font-family: "OpenSans", sans-serif;
+    color: rgb(57, 57, 57);
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.dop #dopnic {
+    background-color: rgb(164, 206, 0);
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.35);
+    width: 320px;
+    height: 70px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    text-decoration: none !important;
+}
+
+.dop #dopsl {
+    background-color: rgb(195, 33, 33);
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.35);
+    width: 320px;
+    height: 70px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    text-decoration: none !important;
+}
+.dop #dopsl, #dopnic {
+    font-size: 24px;
+    font-family: "Calibri";
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 0.86;
+}
+
+
+.dop #dopdiv, #dopkran, #dopsholl, #dopwindwizard, #dopstarbucks {
+    display: inline-block;
+    margin: 30px auto;
+}
+
+.dop #dopkran {
+    background: url(../images/kran.jpg) no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: top center;
+    width: 240px;
+    padding-top: 340px;
+}
+
+.dop #dopwindwizard {
+    background: url(../images/windwizard.jpg) no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: top center;
+    width: 240px;
+    padding-top: 340px;
+}
+
+.dop #dopsholl {
+    background: url(../images/sholl.jpg) no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: top center;
+    width: 240px;
+    padding-top: 340px;
+}
+
+.dop #dopstarbucks {
+    background: url(../images/starbucks.jpg) no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: top center;
+    width: 240px;
+    padding-top: 340px;
+}
+
+.dop #dopdiv {
+    background: url(../images/dopdiv.png) no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    width: 54px;
+    padding-top: 340px;
+}
+
+.dop .titledop {
+    font-size: 22px;
+    font-family: "Calibri";
+    color: #000;
+    text-align: center;
+    text-indent: inherit;
+    text-transform: uppercase;
+    margin: -70px 0 50px;
+
+}
+@media (max-width: 1199px){#dopdiv {display: none;}}
+@media (max-width: 500px){#dopnicer,#dopslicer, #dopshvabra, #dopbullet, #dopcourtpro {width: 90%}}
+@media (max-width: 680px){#dopnicer,#dopslicer, #dopshvabra, #dopbullet, #dopcourtpro {padding-top: 310px}}
+@media (max-width: 500px){#dopnicer,#dopslicer, #dopshvabra, #dopbullet, #dopcourtpro {padding-top: 490px}}
+@media (max-width: 480px){#dopnicer,#dopslicer, #dopshvabra, #dopbullet, #dopcourtpro {padding-top: 480px}}
+@media (max-width: 376px){#dopnicer,#dopslicer, #dopshvabra, #dopbullet, #dopcourtpro {padding-top: 385px}}

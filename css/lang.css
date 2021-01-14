@@ -1,0 +1,80 @@
+
+#langSelector {
+    max-width: 600px;
+    margin: auto;
+}
+
+#langSelector .lang {
+    position: relative;
+}
+
+#langSelector .lang .close {
+    top: 4px;
+    position: relative;
+}
+
+#langSelector .lang img {
+    max-width: 100%;
+}
+
+#langSelector h2 {
+    color: #246772;
+}
+
+#langSelector .modal-body {
+    background: #fff;
+}
+
+#langSelector .modal-footer {
+    background: #fff;
+}
+
+#langSelector .lang_btn {
+    display: inline-block;
+    width: 180px;
+	border:solid #b3907e 2px;
+	padding:10px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 6px;
+}
+
+#langSelector .lang_btn:hover {
+    filter: brightness(1.1);
+}
+
+#langSelector .lang_btn a {
+    display: inline-block;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+#langSelector h4 {
+    font-size: 20px;
+    color: #00525e;
+}
+
+#langSelector .modal-body img {
+    max-width: 150px;
+}
+
+@media screen and (max-width: 500px) {
+    #langSelector .modal-body img {
+        max-width: 100px;
+    }
+
+    #langSelector .modal-body h4 {
+        font-size: 17px !important;
+    }
+
+    #langSelector .lang_btn a {
+        font-size: 15px !important;
+    }
+
+    #langSelector .lang_btn {
+        width: 130px;
+        margin-bottom: -66px;
+    }
+}
